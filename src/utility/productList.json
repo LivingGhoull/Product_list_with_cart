@@ -1,0 +1,49 @@
+{
+  "deserts": [
+    {
+      "title": "Waffle with Berries",
+      "type": "Waffle",
+      "price": "6.50"
+    },
+    {
+      "title": "Vanilla Bean Crème Brûlée",
+      "type": "Crème Brûlée",
+      "price": "7.00"
+    },
+    {
+      "title": "Macaron Mix of Five",
+      "type": "Macaron",
+      "price": "8.00"
+    },
+    {
+      "title": "Classic Tiramisu",
+      "type": "Tiramisu",
+      "price": "5.50"
+    },
+    {
+      "title": "Pistachio Baklava",
+      "type": "Baklava",
+      "price":  "4.00"
+    },
+    {
+      "title": "Lemon Meringue Pie",
+      "type": "Pie",
+      "price": "5.00"
+    },
+    {
+      "title": "Red Velvet Cake",
+      "type": "Cake",
+      "price": "4.50"
+    },
+    {
+      "title": "Salted Caramel Brownie",
+      "type": "Brownie",
+      "price": "4.50"
+    },
+    {
+      "title": "Vanilla Panna Cotta",
+      "type": "Panna Cotta",
+      "price": "6.50"
+    }
+  ]
+}
