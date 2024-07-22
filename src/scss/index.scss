@@ -1,2 +1,48 @@
-@use "./collection"
+@use "./collection" as col;
 
+h1, h6,  p {
+  margin: 0;
+}
+
+body {
+  @include col.fontFamily(map-get(col.$fontWeight, 400));
+}
+
+.title {
+  @include col.fontFamily(map-get(col.$fontWeight, 700));
+  font-size: map-get(col.$fontSize, "h1");
+  padding: 1.5rem 0;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  &__type {
+    color: map-get(col.$colors, "custome-rose_500" );
+  }
+
+  &__title {
+    font-size: map-get(col.$fontSize, "h6");
+  }
+
+  &__price {
+    color: map-get(col.$colors, "custome-red" );
+    font-weight: map-get(col.$fontWeight, 600);
+    &::before {
+      content: "$";
+    }
+  }
+}
