@@ -4,10 +4,10 @@ import Cart from "./components/Cart";
 import Product from "./components/Product";
 import productList from "./utility/productList.json";
 
-import WindowWidth from "./hooks/WindowWidth";
+import useWindowWidth from "./hooks/useWindowWidth";
 
 function App() {
-  const getWindowsWidth = WindowWidth();
+  const getWindowsWidth = useWindowWidth();
   const [screenType, setScreenType] = useState("mobile");
 
   useEffect(() => {
@@ -35,6 +35,7 @@ function App() {
                   ? product.images.desktop
                   : product.images.mobile
               }
+              id={product.id}
               alt={product.alt}
               type={product.type}
               title={product.title}

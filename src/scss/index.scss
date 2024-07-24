@@ -1,17 +1,20 @@
 @use "./collection" as col;
 
-h1, h6,  p {
+h1,
+h6,
+p {
   margin: 0;
 }
 
 body {
   @include col.fontFamily(map-get(col.$fontWeight, 400));
+  background-color: map-get(col.$colors, "custom-rose_50");
 }
 
 .title {
   @include col.fontFamily(map-get(col.$fontWeight, 700));
   font-size: map-get(col.$fontSize, "h1");
-  padding: 1.5rem 0;
+  padding: 2rem 0;
 }
 
 .products {
@@ -25,13 +28,25 @@ body {
     gap: 2rem;
 
     img {
-      width: 100%;
       border-radius: 10px;
     }
   }
 
+  &__position {
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    border: 2px solid white;
+
+    &--outline {
+      border: 2px solid map-get(col.$colors, "custom-red");
+    }
+  }
+
   &__type {
-    color: map-get(col.$colors, "custome-rose_500" );
+    color: map-get(col.$colors, "custom-rose_500");
   }
 
   &__title {
@@ -39,10 +54,62 @@ body {
   }
 
   &__price {
-    color: map-get(col.$colors, "custome-red" );
+    color: map-get(col.$colors, "custom-red");
     font-weight: map-get(col.$fontWeight, 600);
     &::before {
       content: "$";
+    }
+  }
+}
+
+.addToCart {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  margin-left: -100px;
+
+  &__test {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    padding: 0.75rem 2rem;
+  }
+
+  &__add-first {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
+    font-weight: map-get(col.$fontWeight, 600);
+    width: 200px;
+    background-color: white;
+    padding: 0.75rem 2rem;
+
+    border: 1px solid map-get(col.$colors, "custom-rose_400");
+    border-radius: 24px;
+  }
+
+  &__additional {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 200px;
+    background-color: map-get(col.$colors, "custom-red");
+    color: white;
+  
+    padding: 0.75rem 2rem;
+    border: 1px solid map-get(col.$colors, "custom-red");
+    border-radius: 24px;
+
+    button {
+      display: flex;
+      background-color: map-get(col.$colors, "custom-red");
+      border: none;
+      border: 1px solid white;
+      border-radius: 100%;
+      width: 20px;
+      height: 20px;
     }
   }
 }
