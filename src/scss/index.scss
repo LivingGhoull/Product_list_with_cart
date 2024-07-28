@@ -1,35 +1,39 @@
 @use "./collection" as col;
 
 h1,
+h2,
+h4,
 h6,
 p {
   margin: 0;
 }
 
 body {
-  @include col.fontFamily(map-get(col.$fontWeight, 400));
+  @include col.fontFamily();
+  @include col.fontStyle();
   background-color: map-get(col.$colors, "custom-rose_50");
 }
 
+button {
+  @include col.fontFamily();
+  border-radius: 10px;
+}
+
+//Main title
 .title {
-  @include col.fontFamily(map-get(col.$fontWeight, 700));
-  font-size: map-get(col.$fontSize, "h1");
+  @include col.fontStyle(
+    $weight: map-get(col.$fontWeight, 700),
+    $size: map-get(col.$fontSize, "h1")
+  );
   padding: 2rem 0;
 }
 
+//Eatch product in shop
 .products {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  @include col.display($gap: 4rem);
 
   &__card {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    img {
-      border-radius: 10px;
-    }
+    @include col.display($gap: 2rem);
   }
 
   &__position {
@@ -39,8 +43,8 @@ body {
   &__img {
     width: 100%;
     border: 2px solid white;
-
-    &--outline {
+    border-radius: 10px;
+    &--in-cart {
       border: 2px solid map-get(col.$colors, "custom-red");
     }
   }
@@ -54,31 +58,26 @@ body {
   }
 
   &__price {
-    color: map-get(col.$colors, "custom-red");
-    font-weight: map-get(col.$fontWeight, 600);
+    @include col.fontStyle(
+      $color: map-get(col.$colors, "custom-red"),
+      $weight: map-get(col.$fontWeight, 600)
+    );
     &::before {
       content: "$";
     }
   }
 }
 
-.addToCart {
+//Button for product
+.add-to-cart {
   position: absolute;
   bottom: -25px;
   left: 50%;
   margin-left: -100px;
 
-  &__test {
-    display: flex;
-    justify-content: center;
-    width: 200px;
-    padding: 0.75rem 2rem;
-  }
-
   &__add-first {
-    display: flex;
+    @include col.display($direction: row, $gap: 0.5rem);
     justify-content: center;
-    gap: 0.5rem;
 
     font-weight: map-get(col.$fontWeight, 600);
     width: 200px;
@@ -97,7 +96,7 @@ body {
     width: 200px;
     background-color: map-get(col.$colors, "custom-red");
     color: white;
-  
+
     padding: 0.75rem 2rem;
     border: 1px solid map-get(col.$colors, "custom-red");
     border-radius: 24px;
@@ -111,5 +110,114 @@ body {
       width: 20px;
       height: 20px;
     }
+  }
+
+  &__quantity::after {
+    content: "x";
+  }
+}
+
+//Shopping cart that holds all added products
+.cart {
+  @include col.display($gap: 2rem);
+  flex-direction: column;
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 24px;
+
+  &__title {
+    @include col.fontStyle(
+      $weight: map-get(col.$fontWeight, 700),
+      $color: map-get(col.$colors, "custom-red")
+    );
+    font-size: map-get(col.$fontSize, "h4");
+  }
+
+  &__description {
+    color: map-get(col.$colors, "custom-rose_500");
+    font-weight: map-get(col.$fontWeight, 600);
+  }
+
+  &__items {
+    text-align: center;
+  }
+
+  &__info {
+    @include col.display($gap: 2rem);
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__price {
+      font-weight: map-get(col.$fontWeight, 700);
+    }
+  }
+
+  &__carbon-neutral {
+    display: flex;
+    justify-content: space-between;
+    background-color: map-get(col.$colors, "custom-rose_50");
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  &__confirm {
+    background-color: map-get(col.$colors, "custom-red");
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 26px;
+  }
+}
+
+//For the products in the shoppin cart
+.cart-product {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid map-get(col.$colors, "custom-rose_100");
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &__title {
+    font-weight: map-get(col.$fontWeight, 600);
+  }
+
+  &__container {
+    @include col.display($gap: 0.5rem);
+  }
+
+  &__details {
+    @include col.display($gap: 1rem, $direction: row);
+  }
+
+  &__quantity {
+    color: map-get(col.$colors, "custom-red");
+    font-weight: map-get(col.$fontWeight, 600);
+  }
+
+  &__price {
+    color: map-get(col.$colors, "custom-rose_500");
+  }
+
+  &__total-price {
+    color: map-get(col.$colors, "custom-rose_500");
+    font-weight: map-get(col.$fontWeight, 600);
+  }
+
+  &__remove-button {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid map-get(col.$colors, "custom-rose_300");
+    border-radius: 100%;
+    padding: 2px;
   }
 }

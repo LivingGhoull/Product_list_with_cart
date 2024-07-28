@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { changesToCart, getDateFromCart } from '../utility/saveToCart';
+import { changesToCart, getDateFromCart } from '../utility/changesToCart';
 
 interface Props {
   id: number;
   handleIsProductInCart: (value: boolean) => void;
 }
 
-function AddToCart(prop: Props) {  
+function AddToCartButton(prop: Props) {  
   const [productsInCart, setProductsInCart] = useState<number>(0);
 
   useEffect(() => {
@@ -32,12 +32,12 @@ function AddToCart(prop: Props) {
 
   return (
     <>
-      <div className="addToCart">
+      <div className="add-to-cart">
         {productsInCart <= 0 ? (
           <button
             type="button"
             onClick={handleIncresseProduct}
-            className="addToCart__add-first"
+            className="add-to-cart__add-first"
           >
             <img
               src="src\assets\images\icon-add-to-cart.svg"
@@ -46,12 +46,12 @@ function AddToCart(prop: Props) {
             Add To Cart
           </button>
         ) : (
-          <div className="addToCart__additional">
-            <button type="button" onClick={handleDecresseProduct}>
+          <div className="add-to-cart__additional">
+            <button type="button" className="" onClick={handleDecresseProduct}>
               <img src="src\assets\images\icon-decrement-quantity.svg" alt="" />
             </button>
-            {productsInCart}
-            <button type="button" onClick={handleIncresseProduct}>
+            <p className="add-to-cart__quantity">{productsInCart}</p>
+            <button type="button" className="" onClick={handleIncresseProduct}>
               <img src="src\assets\images\icon-increment-quantity.svg" alt="" />
             </button>
           </div>
@@ -61,4 +61,4 @@ function AddToCart(prop: Props) {
   );
 }
 
-export default AddToCart;
+export default AddToCartButton;

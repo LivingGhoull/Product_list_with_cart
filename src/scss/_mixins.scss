@@ -1,6 +1,23 @@
-@mixin fontFamily($weight) {
+@use "./variable" as var;
+
+@mixin display($display: flex, $direction: column, $gap: 0rem) {
+  display: $display;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin fontFamily() {
   font-family: "Red Hat Text", sans-serif;
   font-optical-sizing: auto;
-  font-weight: $weight;
   font-style: normal;
+}
+
+@mixin fontStyle(
+  $color: black,
+  $weight: map-get(var.$fontWeight, 400),
+  $size: map-get(var.$fontSize, "bread")
+) {
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
 }

@@ -26,22 +26,21 @@ function App() {
 
       <div className="products">
         {productList.deserts.map((product, index) => (
-          <div key={index}>
-            <Product
-              src={
-                screenType == "desktop"
-                  ? product.images.desktop
-                  : screenType == "tablet"
-                  ? product.images.desktop
-                  : product.images.mobile
-              }
-              id={product.id}
-              alt={product.alt}
-              type={product.type}
-              title={product.title}
-              price={product.price}
-            />
-          </div>
+          <Product
+            key={index}
+            src={
+              screenType == "desktop"
+                ? product.images.desktop
+                : screenType == "tablet"
+                ? product.images.desktop
+                : product.images.mobile
+            }
+            id={product.id}
+            alt={product.alt}
+            type={product.type}
+            title={product.title}
+            price={product.price}
+          />
         ))}
       </div>
 

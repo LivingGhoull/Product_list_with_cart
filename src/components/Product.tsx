@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddToCart from "./AddToCart";
+import AddToCartButton from "./AddToCartButton";
 
 
 interface Props {
@@ -14,13 +14,9 @@ interface Props {
 
 function Product(prop: Props) {
   const [isProductInCart, setIsProductInCart] = useState<boolean>(false);
-
-
   const handleIsProductInCart = (value: boolean) => {
     setIsProductInCart(value);
   };
-
-  
 
   return (
     <div className="products__card">
@@ -28,13 +24,13 @@ function Product(prop: Props) {
         <img
           className={
             isProductInCart
-              ? "products__img products__img--outline"
+              ? "products__img products__img--in-cart"
               : "products__img"
           }
           src={prop.src}
           alt={prop.alt}
         />
-        <AddToCart
+        <AddToCartButton
           id={prop.id}
           handleIsProductInCart={(value) => handleIsProductInCart(value)}
         />
