@@ -38,12 +38,13 @@ export const changesToCart = async (productID: number, quantity: number) => {
 
   if (quantity == 0) {
     const newCartList = cartList.filter(
-      (product) => product.quantity != 0
+      (product: CartJson) => product.quantity != 0
     );
     localStorage.setItem("cartList", JSON.stringify(newCartList));
   } else {
     localStorage.setItem("cartList", JSON.stringify(cartList));
   }
 
+  window.dispatchEvent(new Event("productCountUpdate"))
   window.dispatchEvent(new Event("cartUpdate"))
 };

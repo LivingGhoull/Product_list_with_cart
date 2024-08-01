@@ -16,7 +16,7 @@ function Cart() {
   const cartUpdate = () => {
     const getItem = localStorage.getItem("cartList") || "[]";
     const prasedItems: CartJson[] = JSON.parse(getItem);
-
+    
     if (prasedItems.length > 0) {
       let fullPrice = "0";
       let totalItems = 0;
@@ -26,15 +26,14 @@ function Cart() {
           parseFloat(productList.deserts[product.productID].price) *
             product.quantity
         ).toFixed(2);
-        totalItems += product.quantity
+        totalItems += product.quantity;
       });
 
       setTotalPrice(fullPrice);
       setIsCartEmpty(false);
       setItemsInCart(totalItems);
       setItemsArray(prasedItems);
-    }
-    else {
+    } else {
       setIsCartEmpty(true);
       setItemsInCart(0);
     }
@@ -42,11 +41,12 @@ function Cart() {
 
   useEffect(() => {
     window.addEventListener("cartUpdate", cartUpdate);
-
+    window.dispatchEvent(new Event("cartUpdate"));
     return () => {
       window.removeEventListener("cartUpdate", cartUpdate);
     };
   }, []);
+  
 
   return (
     <div className="cart">

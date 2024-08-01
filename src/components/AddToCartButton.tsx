@@ -5,6 +5,11 @@ interface Props {
   id: number;
   handleIsProductInCart: (value: boolean) => void;
 }
+interface CartJson {
+  productID: number;
+  quantity: number;
+}
+
 
 function AddToCartButton(prop: Props) {  
   const [productsInCart, setProductsInCart] = useState<number>(0);
@@ -19,6 +24,27 @@ function AddToCartButton(prop: Props) {
   useEffect(() => {
     prop.handleIsProductInCart(productsInCart > 0);
   }, [productsInCart]);
+
+  const updateQuantity = () => {       
+    const getItem = localStorage.getItem("cartList") || "[]";
+    const prasedItems: CartJson[] = JSON.parse(getItem);
+   
+    const product = prasedItems.find((product) => product.productID == prop.id) 
+
+    if (product) {
+      setProductsInCart(product.quantity)
+    } else {
+      setProductsInCart(0)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("productCountUpdate", updateQuantity);
+    return () => {
+      window.removeEventListener("productCountUpdate", updateQuantity)
+    }
+  },[])
+
 
   const handleIncresseProduct = () => {
     setProductsInCart(productsInCart + 1);
