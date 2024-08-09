@@ -7,6 +7,7 @@
       "type": "Waffle",
       "price": "6.50",
       "images": {
+        "thumbnail": "src/assets/images/waffle/image-waffle-thumbnail.jpg",
         "mobile": "src/assets/images/waffle/image-waffle-mobile.jpg",
         "tablet": "src/assets/images/waffle/image-waffle-tablet.jpg",
         "desktop": "src/assets/images/waffle/image-waffle-desktop.jpg"
@@ -19,6 +20,7 @@
       "type": "Crème Brûlée",
       "price": "7.00",
       "images": {
+        "thumbnail": "src/assets/images/cream/image-creme-brulee-thumbnail.jpg",
         "mobile": "src/assets/images/cream/image-creme-brulee-mobile.jpg",
         "tablet": "src/assets/images/cream/image-creme-brulee-tablet.jpg",
         "desktop": "src/assets/images/cream/image-creme-brulee-desktop.jpg"
@@ -31,6 +33,7 @@
       "type": "Macaron",
       "price": "8.00",
       "images": {
+        "thumbnail": "src/assets/images/macaron/image-macaron-thumbnail.jpg",
         "mobile": "src/assets/images/macaron/image-macaron-mobile.jpg",
         "tablet": "src/assets/images/macaron/image-macaron-tablet.jpg",
         "desktop": "src/assets/images/macaron/image-macaron-desktop.jpg"
@@ -43,6 +46,7 @@
       "type": "Tiramisu",
       "price": "5.50",
       "images": {
+        "thumbnail": "src/assets/images/tiramisu/image-tiramisu-thumbnail.jpg",
         "mobile": "src/assets/images/tiramisu/image-tiramisu-mobile.jpg",
         "tablet": "src/assets/images/tiramisu/image-tiramisu-tablet.jpg",
         "desktop": "src/assets/images/tiramisu/image-tiramisu-desktop.jpg"
@@ -55,6 +59,7 @@
       "type": "Baklava",
       "price":  "4.00",
       "images": {
+        "thumbnail": "src/assets/images/baklava/image-baklava-thumbnail.jpg",
         "mobile": "src/assets/images/baklava/image-baklava-mobile.jpg",
         "tablet": "src/assets/images/baklava/image-baklava-tablet.jpg",
         "desktop": "src/assets/images/baklava/image-baklava-desktop.jpg"
@@ -67,6 +72,7 @@
       "type": "Pie",
       "price": "5.00",
       "images": {
+        "thumbnail": "src/assets/images/meringue/image-meringue-thumbnail.jpg",
         "mobile": "src/assets/images/meringue/image-meringue-mobile.jpg",
         "tablet": "src/assets/images/meringue/image-meringue-tablet.jpg",
         "desktop": "src/assets/images/meringue/image-meringue-desktop.jpg"
@@ -79,6 +85,7 @@
       "type": "Cake",
       "price": "4.50",
       "images": {
+        "thumbnail": "src/assets/images/cake/image-cake-thumbnail.jpg",
         "mobile": "src/assets/images/cake/image-cake-mobile.jpg",
         "tablet": "src/assets/images/cake/image-cake-tablet.jpg",
         "desktop": "src/assets/images/cake/image-cake-desktop.jpg"
@@ -91,6 +98,7 @@
       "type": "Brownie",
       "price": "5.50",
       "images": {
+        "thumbnail": "src/assets/images/brownie/image-brownie-thumbnail.jpg",
         "mobile": "src/assets/images/brownie/image-brownie-mobile.jpg",
         "tablet": "src/assets/images/brownie/image-brownie-tablet.jpg",
         "desktop": "src/assets/images/brownie/image-brownie-desktop.jpg"
@@ -103,6 +111,7 @@
       "type": "Panna Cotta",
       "price": "6.50",
       "images": {
+        "thumbnail": "src/assets/images/panna/image-panna-cotta-thumbnail.jpg",
         "mobile": "src/assets/images/panna/image-panna-cotta-mobile.jpg",
         "tablet": "src/assets/images/panna/image-panna-cotta-tablet.jpg",
         "desktop": "src/assets/images/panna/image-panna-cotta-desktop.jpg"

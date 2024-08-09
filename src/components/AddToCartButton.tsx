@@ -46,12 +46,12 @@ function AddToCartButton(prop: Props) {
   },[])
 
 
-  const handleIncresseProduct = () => {
+  const handleIncreaseProduct = () => {
     setProductsInCart(productsInCart + 1);
     changesToCart(prop.id, (productsInCart + 1))
   };
 
-  const handleDecresseProduct = () => {
+  const handleDecreaseProduct = () => {
     setProductsInCart(productsInCart - 1);
     changesToCart(prop.id, (productsInCart - 1))
   };
@@ -62,23 +62,23 @@ function AddToCartButton(prop: Props) {
         {productsInCart <= 0 ? (
           <button
             type="button"
-            onClick={handleIncresseProduct}
+            onClick={handleIncreaseProduct}
             className="add-to-cart__add-first"
           >
             <img
               src="src\assets\images\icon-add-to-cart.svg"
-              alt="Add to the shoppign cart"
+              alt="Add to shopping cart"
             />
             Add To Cart
           </button>
         ) : (
           <div className="add-to-cart__additional">
-            <button type="button" className="" onClick={handleDecresseProduct}>
-              <img src="src\assets\images\icon-decrement-quantity.svg" alt="" />
+            <button type="button" onClick={handleDecreaseProduct}>
+              <img src="src\assets\images\icon-decrement-quantity.svg" alt="decrease quantitiy by one" />
             </button>
             <p className="add-to-cart__quantity">{productsInCart}</p>
-            <button type="button" className="" onClick={handleIncresseProduct}>
-              <img src="src\assets\images\icon-increment-quantity.svg" alt="" />
+            <button type="button" onClick={handleIncreaseProduct}>
+              <img src="src\assets\images\icon-increment-quantity.svg" alt="increase quantitiy by one" />
             </button>
           </div>
         )}

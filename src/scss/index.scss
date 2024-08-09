@@ -17,6 +17,13 @@ body {
 button {
   @include col.fontFamily();
   border-radius: 10px;
+  border: none;
+  background-color: map-get(col.$colors, "custom-red");
+}
+
+.freeze-screen {
+  height: 100vh;
+  overflow: hidden;
 }
 
 //Main title
@@ -28,9 +35,27 @@ button {
   padding: 2rem 0;
 }
 
+.gird-display {
+  @media (min-width: map-get(col.$screenSize, "tablet")) {
+    @include col.display($direction: row, $gap: 2rem);
+    justify-content: space-between;
+    margin-bottom: 5rem;
+   }
+}
+
 //Eatch product in shop
 .products {
   @include col.display($gap: 4rem);
+
+  @media (min-width: map-get(col.$screenSize, "tablet")) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: map-get(col.$screenSize, "desktop")) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
 
   &__card {
     @include col.display($gap: 2rem);
@@ -126,6 +151,13 @@ button {
   margin: 2rem auto;
   border-radius: 24px;
 
+  @media (min-width: map-get(col.$screenSize, "tablet")) {
+    position: sticky;
+    top: 0;
+    height: fit-content;
+    width: min(500px, 100%)
+  }
+
   &__title {
     @include col.fontStyle(
       $weight: map-get(col.$fontWeight, 700),
@@ -137,6 +169,13 @@ button {
   &__description {
     color: map-get(col.$colors, "custom-rose_500");
     font-weight: map-get(col.$fontWeight, 600);
+  }
+
+  &__produt-list {
+    @media (min-width: map-get(col.$screenSize, "tablet")) {
+      overflow-y: scroll;
+      max-height: 50vh;
+    }
   }
 
   &__items {
@@ -182,15 +221,36 @@ button {
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid map-get(col.$colors, "custom-rose_100");
+
+  @media (min-width: map-get(col.$screenSize, "tablet")) {
+    padding: 1rem;
+  }
+
   &:first-child {
     padding-top: 0;
   }
 
+  &__order-product {
+    width: 90%;
+    @include col.display($direction: row, $gap: 0.5rem);
+    align-items: center;
+  }
+
+  &__order-product-confirm {
+    width: 50%;
+    @include col.display($direction: row, $gap: 0.5rem);
+    align-items: center;
+  }
+
   &__title {
     font-weight: map-get(col.$fontWeight, 600);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__container {
+    width: 100%;
     @include col.display($gap: 0.5rem);
   }
 
@@ -219,5 +279,88 @@ button {
     border: 2px solid map-get(col.$colors, "custom-rose_300");
     border-radius: 100%;
     padding: 2px;
+    flex-shrink: 0;
+  }
+
+  &__product-img {
+    height: 70px;
+    border-radius: 5px;
+  }
+}
+
+.order-confirmed {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  @media (min-width: map-get(col.$screenSize, "tablet")) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px 10px 0 0;
+
+    @include col.display($gap: 2rem);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @media (min-width: map-get(col.$screenSize, "tablet")) {
+      position: static;
+      border-radius: 10px;
+      width: min(500px, 100%);
+    }
+  }
+
+  &__title {
+    @include col.fontStyle(
+      $size: map-get(col.$fontSize, "h1"),
+      $weight: map-get(col.$fontWeight, 700)
+    );
+  }
+
+  &__message {
+    @include col.fontStyle($color: map-get(col.$colors, "custom-rose_500"));
+  }
+
+  &__product-list {
+    overflow-y: scroll;
+    height: 250px;
+    background-color: map-get(col.$colors, "custom-rose_50");
+    padding: 1rem;
+  }
+
+  &__total-order {
+    @include col.display($direction: row);
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  &__full-price {
+    @include col.fontStyle(
+      $size: map-get(col.$fontSize, "h3"),
+      $weight: map-get(col.$fontWeight, 700)
+    );
+    &::before {
+      content: "$";
+    }
+  }
+
+  &__button {
+    padding: 0.75rem 2rem;
+    color: white;
+    border-radius: 16px;
   }
 }
