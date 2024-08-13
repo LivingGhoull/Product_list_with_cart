@@ -64,14 +64,14 @@ function AddToCartButton(prop: Props) {
             className="add-to-cart__add-first"
           >
             <img
-              src="src\assets\images\icon-add-to-cart.svg"
+              src="images\icon-add-to-cart.svg"
               alt="Add to shopping cart"
             />
             Add To Cart
           </button>
         ) : (
           <div className="add-to-cart__additional">
-            <button type="button" onClick={handleDecreaseProduct}>
+            <button aria-label="Decrease quantity of product" type="button" onClick={handleDecreaseProduct}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
@@ -83,7 +83,7 @@ function AddToCartButton(prop: Props) {
               </svg>
             </button>
             <p className="add-to-cart__quantity">{productsInCart}</p>
-            <button type="button" onClick={handleIncreaseProduct}>
+            <button aria-label="Increase quantity of product" type="button" onClick={handleIncreaseProduct}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"

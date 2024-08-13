@@ -58,7 +58,7 @@ function Cart(prop: Props) {
       {isCartEmpty ? (
         <div className="cart__items">
           <img
-            src="src\assets\images\illustration-empty-cart.svg"
+            src="images\illustration-empty-cart.svg"
             alt="Empty shopping cart"
           />
           <p className="cart__description">Your added items will appear here</p>
@@ -81,7 +81,7 @@ function Cart(prop: Props) {
             </div>
 
             <div className="cart__carbon-neutral">
-              <img src="src\assets\images\icon-carbon-neutral.svg" alt="Carbon neutral icon" />
+              <img src="images\icon-carbon-neutral.svg" alt="Carbon neutral icon" />
               <p>
                 This is a <span>carbon-neutral</span> delivery
               </p>

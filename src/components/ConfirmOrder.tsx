@@ -35,7 +35,7 @@ function ConfirmOrder(prop: Props) {
   return (
     <div className="order-confirmed__container container">
       <div>
-        <img src="src\assets\images\icon-order-confirmed.svg" alt="The order has been confirmed" />
+        <img src="images\icon-order-confirmed.svg" alt="The order has been confirmed" />
       </div>
       <div>
         <h2 className="order-confirmed__title">Order Confirmed</h2>
