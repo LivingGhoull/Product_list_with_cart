@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { changesToCart, getDateFromCart } from '../utility/changesToCart';
+import { changesToCart, getDateFromCart } from "../utility/changesToCart";
 
 interface Props {
   id: number;
@@ -10,50 +10,48 @@ interface CartJson {
   quantity: number;
 }
 
-
-function AddToCartButton(prop: Props) {  
+function AddToCartButton(prop: Props) {
   const [productsInCart, setProductsInCart] = useState<number>(0);
 
   useEffect(() => {
     const fetchProductInChart = async () => {
-      setProductsInCart(await getDateFromCart(prop.id))
-    }
-    fetchProductInChart()
-  }, [])
+      setProductsInCart(await getDateFromCart(prop.id));
+    };
+    fetchProductInChart();
+  }, []);
 
   useEffect(() => {
     prop.handleIsProductInCart(productsInCart > 0);
   }, [productsInCart]);
 
-  const updateQuantity = () => {       
+  const updateQuantity = () => {
     const getItem = localStorage.getItem("cartList") || "[]";
     const prasedItems: CartJson[] = JSON.parse(getItem);
-   
-    const product = prasedItems.find((product) => product.productID == prop.id) 
+
+    const product = prasedItems.find((product) => product.productID == prop.id);
 
     if (product) {
-      setProductsInCart(product.quantity)
+      setProductsInCart(product.quantity);
     } else {
-      setProductsInCart(0)
+      setProductsInCart(0);
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("productCountUpdate", updateQuantity);
     return () => {
-      window.removeEventListener("productCountUpdate", updateQuantity)
-    }
-  },[])
-
+      window.removeEventListener("productCountUpdate", updateQuantity);
+    };
+  }, []);
 
   const handleIncreaseProduct = () => {
     setProductsInCart(productsInCart + 1);
-    changesToCart(prop.id, (productsInCart + 1))
+    changesToCart(prop.id, productsInCart + 1);
   };
 
   const handleDecreaseProduct = () => {
     setProductsInCart(productsInCart - 1);
-    changesToCart(prop.id, (productsInCart - 1))
+    changesToCart(prop.id, productsInCart - 1);
   };
 
   return (
@@ -74,11 +72,30 @@ function AddToCartButton(prop: Props) {
         ) : (
           <div className="add-to-cart__additional">
             <button type="button" onClick={handleDecreaseProduct}>
-              <img src="src\assets\images\icon-decrement-quantity.svg" alt="decrease quantitiy by one" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="2"
+                fill="none"
+                viewBox="0 0 10 2"
+              >
+                <path fill="currentColor" d="M0 .375h10v1.25H0V.375Z" />
+              </svg>
             </button>
             <p className="add-to-cart__quantity">{productsInCart}</p>
             <button type="button" onClick={handleIncreaseProduct}>
-              <img src="src\assets\images\icon-increment-quantity.svg" alt="increase quantitiy by one" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="10"
+                fill="none"
+                viewBox="0 0 10 10"
+              >
+                <path
+                  fill="currentColor"
+                  d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
+                />
+              </svg>
             </button>
           </div>
         )}

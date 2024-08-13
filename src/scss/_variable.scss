@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
 
 $colors: (
+  custom-black: hsl(0, 5%, 10%),
+  custom-white: hsl(0, 0%, 100%),
   custom-red: hsl(14, 86%, 42%),
+  custom-hover: hsl(14, 89%, 32%),
   custom-green: hsl(159, 69%, 38%),
   custom-rose_50: hsl(20, 50%, 98%),
   custom-rose_100: hsl(13, 31%, 94%),

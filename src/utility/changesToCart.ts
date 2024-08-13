@@ -35,7 +35,6 @@ export const changesToCart = async (productID: number, quantity: number) => {
     cartList.push({ productID, quantity });
   }
 
-
   if (quantity == 0) {
     const newCartList = cartList.filter(
       (product: CartJson) => product.quantity != 0
@@ -45,6 +44,12 @@ export const changesToCart = async (productID: number, quantity: number) => {
     localStorage.setItem("cartList", JSON.stringify(cartList));
   }
 
+  window.dispatchEvent(new Event("productCountUpdate"))
+  window.dispatchEvent(new Event("cartUpdate"))
+};
+
+export const removeOrder = () => {
+  localStorage.removeItem("cartList")
   window.dispatchEvent(new Event("productCountUpdate"))
   window.dispatchEvent(new Event("cartUpdate"))
 };

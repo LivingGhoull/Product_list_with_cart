@@ -8,8 +8,7 @@ interface CartJson {
 }
 
 interface Props {
-  handleOrderToggle: () => void;
-}
+  handleOrderToggle: (newOrder?: boolean) => void;}
 
 function ConfirmOrder(prop: Props) {
   const [itemsArray, setItemsArray] = useState<CartJson[]>([]);
@@ -58,7 +57,7 @@ function ConfirmOrder(prop: Props) {
         </div>
       </div>
 
-      <button className="order-confirmed__button" onClick={prop.handleOrderToggle}>Start New Order</button>
+      <button className="order-confirmed__button" onClick={() => prop.handleOrderToggle(true)}>Start New Order</button>
     </div>
   );
 }
