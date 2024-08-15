@@ -301,15 +301,16 @@ button {
     border-radius: 100%;
     padding: 2px;
     flex-shrink: 0;
+    
+    &:hover {
+       color: map-get(col.$colors, "custom-rose_900");;
+       border-color: map-get(col.$colors, "custom-rose_900");;
+     }
   }
 
   &__product-img {
     height: 70px;
     border-radius: 5px;
-  }
-  :hover {
-    color: map-get(col.$colors, "custom-rose_300");;
-    border-color: map-get(col.$colors, "custom-rose_300");;
   }
 }
 
